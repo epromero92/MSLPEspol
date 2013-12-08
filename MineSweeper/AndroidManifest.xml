@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.proglang2013ep.minesweeper"
+    android:versionCode="1"
+    android:versionName="1.0" >
+<!-- El atributo: "android:versionName" puede ser cualquier string que usted desee -->
+<!-- El atributo: "android:versionCode" debe ser un entero. -->
+<!-- Especifica que versiones de Android son soportadas -->    
+<!-- Los valores enteros de los atributos representan el nivel de API de Android -->
+    <uses-sdk
+        android:minSdkVersion="9"
+        android:targetSdkVersion="15" />
+	<!--  Este elemento me permite dar soporte a los tipos de pantallas especificados -->
+    <supports-screens android:largeScreens="true" android:smallScreens="false" android:xlargeScreens="true" android:normalScreens="true"/>
+    <!-- El elemento "application" es el hijo principal del elemento "manifest" -->
+    <!-- El atributo "android:label" de nuestro elemento <application> se refiere al recurso de tipo string "app_name"-->
+    <!-- Note que el atributo "android:icon" simplemente hace referencia a "@drawable/ic_launcher" no posee extensión ni especifica la densidad de la pantalla.-->
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme" >
+        <!-- El atributo "android:name" indica que clase que implementa la actividad -->
+        <!-- El atributo "android:label" indica que clase que nombre se muesta en la actividad -->	
+        <!-- El elemento "intent-filter" describe bajo que condiciones esta actividad será mostrada -->
+        <activity
+            android:name="com.proglang2013ep.minesweeper.MineSweeperActivity"
+            android:label="@string/app_name" >
+            <intent-filter ></intent-filter><intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity 
+            android:name=".FrmMessage" 
+			android:label="@string/greeting" >
+		</activity>
+    </application>
+
+</manifest>
