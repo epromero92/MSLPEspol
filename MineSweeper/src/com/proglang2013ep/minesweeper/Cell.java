@@ -4,30 +4,41 @@ import android.content.Context;
 import android.widget.ImageButton;
 
 public class Cell extends ImageButton {
-	boolean mine;
-	boolean wasClicked;
+	boolean hasMine;
+	boolean wasDiscovered;
+	int row;
+	int column;
 	public Cell(Context context, float probability){
 		super(context);
 		double random = Math.random();
-		wasClicked = false;
+		wasDiscovered = false;
 		if(random > probability)
-			mine = true;
+			hasMine = true;
 		else
-			mine = false;
-		this.setBackgroundResource(R.drawable.cell);
+			hasMine = false;
+		if(this.isMined()){
+			this.setBackgroundResource(R.drawable.mine);
+		}
+		else{
+			this.setBackgroundResource(R.drawable.cell);
+		}
 	}
-
-	
 	public boolean isMined(){
-		return mine;
+		return hasMine;
+	}
+	public void discover(){
+		wasDiscovered = true;
+	}
+	public void setRowColumn(int row, int column){
+		this.row = row;
+		this.column = column;
+	}
+	public int getRow(){
+		return this.row;
+	}
+	public int getColumn(){
+		return this.column;
 		
 	}
-	
-	public void click(){
-		wasClicked = true;
-		
-	}
-	
-	
 
 }

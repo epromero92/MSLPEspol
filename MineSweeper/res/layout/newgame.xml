@@ -21,22 +21,10 @@
 		>
 	    
 	    <!-- Etiqueta de texto -->
-		<TextView
-			android:id="@+id/NameLbl"
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content"
-			android:text="@string/name" 
-			android:textColor="@color/white"
-			android:textSize="35sp"/>
+		
 		<!-- Cuadro de texto -->
 		<!--  el atributo "android:inputType" indica que contenido va a albergar el control.-->
-		<EditText
-			android:id="@+id/NameTextBox"
-			android:layout_width="match_parent"
-			android:layout_height="wrap_content"
-			android:textColor="@color/white"
-			android:inputType="text" 
-			android:textSize="35sp"/>
+		
 		<TextView
 			android:id="@+id/chooseALevelLbl"
 			android:layout_width="wrap_content"
@@ -49,7 +37,9 @@
 		    android:layout_width="match_parent"
 		    android:layout_height="wrap_content"
 		   	android:prompt="@string/levelsPrompt"
-		    android:spinnerMode="dropdown"/>
+		    android:spinnerMode="dropdown"
+		    android:textColor="@color/gray"
+		    />
 		<Button
 			android:id="@+id/AcceptBtn"
 			android:layout_width="match_parent"

@@ -1,16 +1,17 @@
 package com.proglang2013ep.minesweeper;
 
+import java.util.ArrayList;
+
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.SpinnerAdapter;
 
 public class NewGame extends Activity {
 	protected void onCreate(Bundle savedInstanceState){
@@ -20,33 +21,26 @@ public class NewGame extends Activity {
 	
 	public void loadThisOnCreate(){
 		setContentView(R.layout.newgame);
-		final EditText nameTextBox = (EditText)findViewById(R.id.NameTextBox);
 		final Button acceptBtn = (Button)findViewById(R.id.AcceptBtn);
-		
-		//ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, R.array.levels);
-		ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.levels, android.R.layout.simple_spinner_item);
+	    //ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, R.layout.levels_layout, R.array.levels);
+		//ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.levels, R.layout.levels_layout);
 		final Spinner listOfLevels = (Spinner)findViewById(R.id.ListOfLevels);
-		listOfLevels.animate();
-		adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+		listOfLevels.setBackgroundColor(getResources().getColor(R.color.gray));
+		ArrayList<ComposedItem> levels = new ArrayList<ComposedItem>();
+		levels.add(new ComposedItem("Easy"));
+		levels.add(new ComposedItem("Medium"));
+		levels.add(new ComposedItem("Hard"));
+		
+		LOLAdapter adapter = new LOLAdapter(this, levels);
 		listOfLevels.setAdapter(adapter);
-		listOfLevels.setBackgroundColor(Color.GRAY);
-		listOfLevels.setOnItemSelectedListener(
-		new AdapterView.OnItemSelectedListener() {
-			public void onItemSelected(AdapterView<?> parent, android.view.View v, int position, long id){
-									
-			}
-			public void onNothingSelected(AdapterView<?> parent) { 
-			
-			}
-		});
+						
 		acceptBtn.setOnClickListener(new OnClickListener(){
 	        @Override
 	        public void onClick(View v) {
 	        	Intent intent = new Intent(NewGame.this, Game.class);
 		        //Creamos la información a pasar entre actividades
 		        Bundle b = new Bundle(); 
-		        b.putString("NAME", nameTextBox.getText().toString());
-		        b.putString("LEVEL", listOfLevels.getSelectedItem().toString());
+		        b.putString("LEVEL", ((ComposedItem)listOfLevels.getSelectedItem()).getLevel());
 		        //Añadimos la información al intent
 		        intent.putExtras(b); 
 		        //Iniciamos la nueva actividad
