@@ -4,16 +4,16 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.widget.TextView;
 
-public class FrmMessage extends Activity {
+public class Game extends Activity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState){
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.gmessage);
+		setContentView(R.layout.game);
 		//Localizar los controles
-		TextView txtSaludo = (TextView)findViewById(R.id.TxtSaludo);
+		TextView nameLblOut = (TextView)findViewById(R.id.NameLblOut);
 		//Recuperamos la información pasada en el intent
 		Bundle bundle = this.getIntent().getExtras();
 		//Construimos el mensaje a mostrar
-		txtSaludo.setText("Hola " + bundle.getString("NOMBRE"));
+		nameLblOut.setText("Playing: " + bundle.getString("NOMBRE"));
 	}
 }

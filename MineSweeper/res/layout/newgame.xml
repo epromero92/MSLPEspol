@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/abFrameLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+   <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        android:src="@drawable/background">
+    </ImageView>
+    <LinearLayout 
+	    android:id ="@+id/abLinearLayout1"
+	    android:layout_width="match_parent"
+	    android:layout_height="match_parent"
+	    android:orientation="vertical"
+	    android:gravity="center">
+	    <!-- Etiqueta de texto -->
+		<TextView
+			android:id="@+id/NameLbl"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:text="@string/name" 
+			android:textColor="@color/white"
+			android:textSize="18sp"/>
+		<!-- Cuadro de texto -->
+		<!--  el atributo "android:inputType" indica que contenido va a albergar el control.-->
+		<EditText
+			android:id="@+id/NameTextBox"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:textColor="@color/white"
+			android:inputType="text" />
+		<Button
+			android:id="@+id/AcceptBtn"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:text="@string/accept" 
+			android:textColor="@color/white"/>
+   </LinearLayout>
+</FrameLayout>

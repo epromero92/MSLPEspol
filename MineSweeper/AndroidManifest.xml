@@ -24,18 +24,18 @@
         <!-- El atributo "android:label" indica que clase que nombre se muesta en la actividad -->	
         <!-- El elemento "intent-filter" describe bajo que condiciones esta actividad será mostrada -->
         <activity
-            android:name="com.proglang2013ep.minesweeper.MineSweeperActivity"
+            android:name="com.proglang2013ep.minesweeper.Start"
             android:label="@string/app_name" >
             <intent-filter ></intent-filter><intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity 
-            android:name=".FrmMessage" 
-			android:label="@string/greeting" >
-		</activity>
-    </application>
+        <activity android:name=".Main" android:label="@string/app_name"></activity>
+		<activity android:name=".NewGame" android:label="@string/nuGame"></activity>
+		<activity android:name=".Ranking" android:label="@string/ranking"></activity>
+		<activity android:name=".About" android:label="@string/about"></activity>
+		<activity android:name=".Game" android:label="@string/game"></activity>
+     </application>
 
 </manifest>

@@ -17,35 +17,51 @@
 
 <!-- Linear Layout distribuirá los controles simplemente uno tras otro y en la orientación que
 indique la propiedad "android:orientation", que en este caso será vertical-->
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-	xmlns:tools="http://schemas.android.com/tools"
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+	android:id="@+id/FrameLayout1"
+	android:layout_width="fill_parent"
+	android:layout_height="fill_parent">
+	<ImageView
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_gravity="center_vertical"
+            android:scaleType="centerCrop"
+            android:src="@drawable/background" />
+	
+<LinearLayout 
+ 	
 	android:id="@+id/LinearLayout1"
 	android:layout_width="match_parent"
 	android:layout_height="match_parent"
-	android:orientation="vertical" >
-	<!-- Etiqueta -->
-	<TextView
-		android:id="@+id/LblNombre"
-		android:layout_width="wrap_content"
-		android:layout_height="wrap_content"
-		android:text="@string/nombre" />
-	<!-- Cuadro de texto -->
-	<!--  el atributo "android:inputType" indica que contenido va a albergar el control.-->
-	<EditText
-		android:id="@+id/TxtNombre"
+	android:orientation="vertical"
+	android:paddingRight="40dp"
+	android:paddingLeft="40dp"
+	android:layout_gravity="center_horizontal"
+	android:gravity="center_vertical">
+	
+	<Button
+		android:id="@+id/BtnNuGame"
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
-		android:inputType="text" />
-	<!-- Botón -->
-	<Button
-		android:id="@+id/BtnHola"
-		android:layout_width="wrap_content"
+		android:text="@string/nuGame" 
+		android:textColor="@color/white"/>
+    <Button
+		android:id="@+id/BtnRanking"
+		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
-		android:text="@string/hola" />
+		android:text="@string/ranking" 
+		android:textColor="@color/white"/>
+	<Button
+		android:id="@+id/BtnAbout"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:text="@string/about"
+		android:textColor="@color/white"/>		
 	<!-- Los atributos de dimensión que tengan por valor "wrap_content" indica que las 
 	dimensiones del control se ajustarán al contenido del mismo.-->
 	<!-- El valor match_parent indica que el ancho o el alto del control se ajustará 
 	al ancho o alto del alyout contenedor respectivamente.-->
 	<!-- El atributo "android:text" indica que texto va a aparecer en el control. -->
-
 </LinearLayout>
+</FrameLayout>

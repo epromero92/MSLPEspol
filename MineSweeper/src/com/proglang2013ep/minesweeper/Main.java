@@ -6,12 +6,10 @@ import android.app.Activity;
 import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
 import android.view.View.OnClickListener;
-
 import android.content.Intent;
 
-public class MineSweeperActivity extends Activity {
+public class Main extends Activity {
 	//Este método es llamado la primera vez que se crea la actividad
 	@Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,23 +19,41 @@ public class MineSweeperActivity extends Activity {
         //layout/main.xml
         setContentView(R.layout.main);
       //Obtenemos una referencia a los controles de la interfaz.
-        final EditText txtNombre = (EditText)findViewById(R.id.TxtNombre);
-        final Button btnHola = (Button)findViewById(R.id.BtnHola);
+      //final EditText txtNombre = (EditText)findViewById(R.id.TxtNombre);
+      //final Button btnHola = (Button)findViewById(R.id.BtnHola);
+        
+        final Button nuGameBt = (Button)findViewById(R.id.BtnNuGame);
+        final Button rankBt = (Button)findViewById(R.id.BtnRanking);
+        final Button aboutBt = (Button)findViewById(R.id.BtnAbout);
       
       //Implementamos el evento "click" del botón
-        btnHola.setOnClickListener(new OnClickListener() {
+        nuGameBt.setOnClickListener(new OnClickListener() {
 	        @Override
 	        public void onClick(View v) {
 	        	//Creamos el Intent
-		        Intent intent = new Intent(MineSweeperActivity.this, FrmMessage.class);
+	        	Intent intent = new Intent(Main.this, NewGame.class);
 		        //Creamos la información a pasar entre actividades
-		        Bundle b = new Bundle(); 
-		        b.putString("NOMBRE", txtNombre.getText().toString()); 
+		        //Bundle b = new Bundle(); 
+		        //b.putString("NOMBRE", txtNombre.getText().toString()); 
 		        //Añadimos la información al intent
-		        intent.putExtras(b); 
+		        //intent.putExtras(b); 
 		        //Iniciamos la nueva actividad
 		        startActivity(intent);
 	        }
+        });
+        
+        rankBt.setOnClickListener(new OnClickListener(){
+        	public void onClick(View v){
+	        	Intent intent = new Intent(Main.this, Ranking.class);
+	        	startActivity(intent);
+        	}
+        });
+        
+        aboutBt.setOnClickListener(new OnClickListener(){
+        	public void onClick(View v){
+	        	Intent intent = new Intent(Main.this, About.class);
+	        	startActivity(intent);
+        	}
         });
 	}
 
