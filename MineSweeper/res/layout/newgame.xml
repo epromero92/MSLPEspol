@@ -14,7 +14,12 @@
 	    android:layout_width="match_parent"
 	    android:layout_height="match_parent"
 	    android:orientation="vertical"
-	    android:gravity="center">
+	    android:gravity="center"
+	    android:paddingRight="300dp"
+		android:paddingLeft="300dp"
+		android:textSize="35sp"
+		>
+	    
 	    <!-- Etiqueta de texto -->
 		<TextView
 			android:id="@+id/NameLbl"
@@ -22,7 +27,7 @@
 			android:layout_height="wrap_content"
 			android:text="@string/name" 
 			android:textColor="@color/white"
-			android:textSize="18sp"/>
+			android:textSize="35sp"/>
 		<!-- Cuadro de texto -->
 		<!--  el atributo "android:inputType" indica que contenido va a albergar el control.-->
 		<EditText
@@ -30,14 +35,15 @@
 			android:layout_width="match_parent"
 			android:layout_height="wrap_content"
 			android:textColor="@color/white"
-			android:inputType="text" />
+			android:inputType="text" 
+			android:textSize="35sp"/>
 		<TextView
 			android:id="@+id/chooseALevelLbl"
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
 			android:text="@string/levelsPrompt" 
 			android:textColor="@color/white"
-			android:textSize="18sp"/>
+			android:textSize="35sp"/>
 		<Spinner
 		    android:id="@+id/ListOfLevels"
 		    android:layout_width="match_parent"
@@ -49,7 +55,8 @@
 			android:layout_width="match_parent"
 			android:layout_height="wrap_content"
 			android:text="@string/accept" 
-			android:textColor="@color/white"/>
+			android:textColor="@color/white"
+			android:textSize="35sp"/>
 		
    </LinearLayout>
 </FrameLayout>

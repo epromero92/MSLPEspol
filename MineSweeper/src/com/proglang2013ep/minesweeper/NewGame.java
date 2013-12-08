@@ -23,20 +23,6 @@ public class NewGame extends Activity {
 		final EditText nameTextBox = (EditText)findViewById(R.id.NameTextBox);
 		final Button acceptBtn = (Button)findViewById(R.id.AcceptBtn);
 		
-		acceptBtn.setOnClickListener(new OnClickListener(){
-	        @Override
-	        public void onClick(View v) {
-	        	Intent intent = new Intent(NewGame.this, Game.class);
-		        //Creamos la información a pasar entre actividades
-		        Bundle b = new Bundle(); 
-		        b.putString("NOMBRE", nameTextBox.getText().toString()); 
-		        //Añadimos la información al intent
-		        intent.putExtras(b); 
-		        //Iniciamos la nueva actividad
-		        startActivity(intent);
-	        }
-        });
-		
 		//ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, R.array.levels);
 		ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.levels, android.R.layout.simple_spinner_item);
 		final Spinner listOfLevels = (Spinner)findViewById(R.id.ListOfLevels);
@@ -53,6 +39,22 @@ public class NewGame extends Activity {
 			
 			}
 		});
+		acceptBtn.setOnClickListener(new OnClickListener(){
+	        @Override
+	        public void onClick(View v) {
+	        	Intent intent = new Intent(NewGame.this, Game.class);
+		        //Creamos la información a pasar entre actividades
+		        Bundle b = new Bundle(); 
+		        b.putString("NAME", nameTextBox.getText().toString());
+		        b.putString("LEVEL", listOfLevels.getSelectedItem().toString());
+		        //Añadimos la información al intent
+		        intent.putExtras(b); 
+		        //Iniciamos la nueva actividad
+		        startActivity(intent);
+	        }
+        });
+		
+		
 		
 	}
 }

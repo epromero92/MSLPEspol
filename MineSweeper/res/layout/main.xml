@@ -35,29 +35,35 @@ indique la propiedad "android:orientation", que en este caso será vertical-->
 	android:layout_width="match_parent"
 	android:layout_height="match_parent"
 	android:orientation="vertical"
-	android:paddingRight="40dp"
-	android:paddingLeft="40dp"
-	android:layout_gravity="center_horizontal"
-	android:gravity="center_vertical">
+	android:paddingRight="300dp"
+	android:paddingLeft="300dp"
+	android:gravity="center"
+	android:layout_gravity="fill">
 	
 	<Button
 		android:id="@+id/BtnNuGame"
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
 		android:text="@string/nuGame" 
-		android:textColor="@color/white"/>
+		android:textColor="@color/white"
+		android:textSize="35sp"
+		/>
     <Button
 		android:id="@+id/BtnRanking"
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
 		android:text="@string/ranking" 
-		android:textColor="@color/white"/>
+		android:textColor="@color/white"
+		android:textSize="35sp"
+		/>
 	<Button
 		android:id="@+id/BtnAbout"
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
 		android:text="@string/about"
-		android:textColor="@color/white"/>		
+		android:textColor="@color/white"
+		android:textSize="35sp"
+		/>		
 	<!-- Los atributos de dimensión que tengan por valor "wrap_content" indica que las 
 	dimensiones del control se ajustarán al contenido del mismo.-->
 	<!-- El valor match_parent indica que el ancho o el alto del control se ajustará 

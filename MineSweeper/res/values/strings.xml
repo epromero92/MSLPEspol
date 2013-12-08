@@ -17,5 +17,10 @@
     <string name="aboutDesc">Desarrollo del juego Mine Sweeper para la plataforma Android como proyecto del primer parcial de la materia: Lenguajes de Programación\n\nCreador: Efrén Romero</string>
 	<string name="game">Playing</string>
 	<string name="levelsPrompt">Choose a level:</string>
-	
+	<string name="easy">Easy</string>
+	<string name="medium">Medium</string>
+	<string name="hard">Hard</string>
+	<string name="custom">Customized</string>
+	<string name="tapsToWin">Taps to win: </string>
+	<string name="isMined">Is mined, you lost :\</string>
 </resources>
