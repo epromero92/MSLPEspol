@@ -18,7 +18,8 @@ public class Cell extends ImageButton {
 			hasMine = true;
 		else
 			hasMine = false;
-		this.setBackgroundResource(R.drawable.cell);
+			this.setBackgroundResource(R.drawable.cell);
+	
 		adjacentMines = 0;
 	}
 	public boolean isMined(){
@@ -47,5 +48,4 @@ public class Cell extends ImageButton {
 	public boolean wasDiscovered(){
 		return this.wasDiscovered;
 	}
-
 }

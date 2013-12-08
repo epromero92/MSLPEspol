@@ -41,11 +41,11 @@ public class Game extends Activity {
 		//Obtengo el nivel y creo el tablero en base al mismo.
 		level = bundle.getString("LEVEL");
 		if(level.compareTo(getString(R.string.easy))==0)
-			genTable(9,9, 0.6F);
+			genTable(9,9, 0.9F);
 		else if(level.compareTo(getString(R.string.medium))==0)
-			genTable(16,16,0.6F);
+			genTable(16,16,0.9F);
 		else if(level.compareTo(getString(R.string.hard))==0)
-			genTable(33,16,0.6F);
+			genTable(33,16,0.9F);
 	}
 	
 	private void genTable(int numRows, int numColumns, float probability){
@@ -117,7 +117,9 @@ public class Game extends Activity {
 		}
 		return cellsArray;
 	}
-	
+	public void addIMines(){
+		
+	}
 	public void addAdjacentMines(ArrayList<Cell> mines, Cell[][] cellsArray){
 		for(Cell mine: mines){
 			int row, column;
@@ -182,35 +184,28 @@ public class Game extends Activity {
 
 		public void floodFill(Cell[][] cellsArray, int row, int column, int maxRows, int maxColumns){
 			if(row < 0) return;
-			System.out.println("lo logre1");
 			if(column < 0) return;
-			System.out.println("lo logre2");
 			if(row >= maxRows)return;
-			System.out.println("lo logre3");
 			if(column >= maxColumns) return;
-			System.out.println("lo logre4");
-			System.out.println("Pase el primer fitro!!");
-			System.out.println("SEEEE row: " + row + "column: " + column);
-			
 			if(cellsArray[row][column].isMined())return;
-			System.out.println("Pase el segundo fitro!!");
-			System.out.println("SEEEE row: " + row + "column: " + column);
-			if(cellsArray[row][column].wasDiscovered()) return;
 			
+			if(cellsArray[row][column].wasDiscovered()) return;
 			else{
 				this.asignIcon(cellsArray[row][column]);
 				cellsArray[row][column].discover();
 				Game.this.tapsToWin--;
-				System.out.println("SEEEE row: " + row + "column: " + column);
+				if(Game.this.tapsToWin == 0)
+					Toast.makeText(this.context,"You won! yay!",Toast.LENGTH_SHORT).show();
+				if(cellsArray[row][column].getAdjacentMines()>0)return;
 			}
-			System.out.println("Pase el tercer fitro!!");
-					
+								
 			floodFill(cellsArray, row - 1, column, maxRows, maxColumns);
 			floodFill(cellsArray, row + 1, column, maxRows, maxColumns);
 			floodFill(cellsArray, row, column - 1, maxRows, maxColumns);
 			floodFill(cellsArray, row, column + 1, maxRows, maxColumns);
-		}
+			}
 		
+				
 		public void asignIcon(Cell c){
 			int adj = c.getAdjacentMines();
 			switch(adj){
