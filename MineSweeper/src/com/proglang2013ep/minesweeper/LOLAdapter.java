@@ -10,7 +10,6 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.SpinnerAdapter;
 import android.widget.TextView;
-import android.widget.Toast;
 public class LOLAdapter extends BaseAdapter implements SpinnerAdapter{
 		private Activity activity;
 		private ArrayList<ComposedItem> levels;

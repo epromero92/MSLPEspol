@@ -1,13 +1,15 @@
 package com.proglang2013ep.minesweeper;
 
+
 import android.content.Context;
 import android.widget.ImageButton;
 
 public class Cell extends ImageButton {
-	boolean hasMine;
-	boolean wasDiscovered;
-	int row;
-	int column;
+	private boolean hasMine;
+	private boolean wasDiscovered;
+	private int row;
+	private int column;
+	private int adjacentMines;
 	public Cell(Context context, float probability){
 		super(context);
 		double random = Math.random();
@@ -16,12 +18,8 @@ public class Cell extends ImageButton {
 			hasMine = true;
 		else
 			hasMine = false;
-		if(this.isMined()){
-			this.setBackgroundResource(R.drawable.mine);
-		}
-		else{
-			this.setBackgroundResource(R.drawable.cell);
-		}
+		this.setBackgroundResource(R.drawable.cell);
+		adjacentMines = 0;
 	}
 	public boolean isMined(){
 		return hasMine;
@@ -39,6 +37,15 @@ public class Cell extends ImageButton {
 	public int getColumn(){
 		return this.column;
 		
+	}
+	public int getAdjacentMines(){
+		return adjacentMines;
+	}
+	public void addOneAdjacentMine(){
+		this.adjacentMines += 1;
+	}
+	public boolean wasDiscovered(){
+		return this.wasDiscovered;
 	}
 
 }
