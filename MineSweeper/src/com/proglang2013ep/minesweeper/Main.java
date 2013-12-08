@@ -14,19 +14,22 @@ public class Main extends Activity {
 	@Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        //Con esta llamada le estamos diciendo a Android que debe establecer
-        //como interfaz gráfica de esta actividad la definida en el archivo
-        //layout/main.xml
+        this.loadThisOnCreate();
+	}
+
+
+	public void loadThisOnCreate(){
+		/*Con esta llamada le estamos diciendo a Android que debe establecer 
+		 *como interfaz gráfica de esta actividad la definida en el archivo
+         *layout/main.xml
+         **/
         setContentView(R.layout.main);
-      //Obtenemos una referencia a los controles de la interfaz.
-      //final EditText txtNombre = (EditText)findViewById(R.id.TxtNombre);
-      //final Button btnHola = (Button)findViewById(R.id.BtnHola);
-        
-        final Button nuGameBt = (Button)findViewById(R.id.BtnNuGame);
-        final Button rankBt = (Button)findViewById(R.id.BtnRanking);
-        final Button aboutBt = (Button)findViewById(R.id.BtnAbout);
+		//Obtenemos una referencia a los controles de la interfaz.
+		final Button nuGameBt = (Button)findViewById(R.id.BtnNuGame);
+		final Button rankBt = (Button)findViewById(R.id.BtnRanking);
+		final Button aboutBt = (Button)findViewById(R.id.BtnAbout);
       
-      //Implementamos el evento "click" del botón
+		//Implementamos el evento "onClick" del botón
         nuGameBt.setOnClickListener(new OnClickListener() {
 	        @Override
 	        public void onClick(View v) {
@@ -41,14 +44,12 @@ public class Main extends Activity {
 		        startActivity(intent);
 	        }
         });
-        
         rankBt.setOnClickListener(new OnClickListener(){
         	public void onClick(View v){
 	        	Intent intent = new Intent(Main.this, Ranking.class);
 	        	startActivity(intent);
         	}
         });
-        
         aboutBt.setOnClickListener(new OnClickListener(){
         	public void onClick(View v){
 	        	Intent intent = new Intent(Main.this, About.class);
@@ -56,8 +57,6 @@ public class Main extends Activity {
         	}
         });
 	}
-
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.

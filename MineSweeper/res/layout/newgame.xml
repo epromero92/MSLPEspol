@@ -31,11 +31,25 @@
 			android:layout_height="wrap_content"
 			android:textColor="@color/white"
 			android:inputType="text" />
+		<TextView
+			android:id="@+id/chooseALevelLbl"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:text="@string/levelsPrompt" 
+			android:textColor="@color/white"
+			android:textSize="18sp"/>
+		<Spinner
+		    android:id="@+id/ListOfLevels"
+		    android:layout_width="match_parent"
+		    android:layout_height="wrap_content"
+		   	android:prompt="@string/levelsPrompt"
+		    android:spinnerMode="dropdown"/>
 		<Button
 			android:id="@+id/AcceptBtn"
 			android:layout_width="match_parent"
 			android:layout_height="wrap_content"
 			android:text="@string/accept" 
 			android:textColor="@color/white"/>
+		
    </LinearLayout>
 </FrameLayout>

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    <string name="construct">Section in construction</string>
     <string name="app_name">MineSweeper LP</string>
     <string name="action_settings">Settings</string>
     <string name="hello_world">Hello world!</string>
@@ -15,4 +16,6 @@
     <string name="about">About</string>
     <string name="aboutDesc">Desarrollo del juego Mine Sweeper para la plataforma Android como proyecto del primer parcial de la materia: Lenguajes de Programación\n\nCreador: Efrén Romero</string>
 	<string name="game">Playing</string>
+	<string name="levelsPrompt">Choose a level:</string>
+	
 </resources>

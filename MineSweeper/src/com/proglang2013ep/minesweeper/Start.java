@@ -12,15 +12,21 @@ public class Start extends Activity {
 	@Override
     protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		 setContentView(R.layout.start);
-		 final Button btnHola = (Button)findViewById(R.id.BtnStart);
-		 btnHola.setOnClickListener(new OnClickListener() {
-		        @Override
-		        public void onClick(View v) {
-			        Intent intent = new Intent(Start.this, Main.class);
-			        startActivity(intent);
-		        }
-	        });
+		this.loadThisOnCreate();
+		 
+	}
+	
+	public void loadThisOnCreate(){
+		setContentView(R.layout.start);
+		Button btnHola = (Button)findViewById(R.id.BtnStart);
+		btnHola.setOnClickListener(new OnClickListener() {
+			@Override
+	        public void onClick(View v) {
+		        Intent intent = new Intent(Start.this, Main.class);
+		        startActivity(intent);
+	        }
+        });
+		
 	}
 
 }
