@@ -6,6 +6,7 @@ import android.app.Activity;
 import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.view.View.OnClickListener;
 import android.content.Intent;
 
@@ -25,9 +26,9 @@ public class Main extends Activity {
          **/
         setContentView(R.layout.main);
 		//Obtenemos una referencia a los controles de la interfaz.
-		final Button nuGameBt = (Button)findViewById(R.id.BtnNuGame);
-		final Button rankBt = (Button)findViewById(R.id.BtnRanking);
-		final Button aboutBt = (Button)findViewById(R.id.BtnAbout);
+		final ImageButton nuGameBt = (ImageButton)findViewById(R.id.BtnNuGame);
+		final ImageButton rankBt = (ImageButton)findViewById(R.id.BtnRanking);
+		final ImageButton aboutBt = (ImageButton)findViewById(R.id.BtnAbout);
       
 		//Implementamos el evento "onClick" del botón
         nuGameBt.setOnClickListener(new OnClickListener() {

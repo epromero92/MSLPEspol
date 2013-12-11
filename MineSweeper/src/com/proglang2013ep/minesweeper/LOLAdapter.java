@@ -2,6 +2,8 @@ package com.proglang2013ep.minesweeper;
 
 import java.util.ArrayList;
 
+import android.R.color;
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,8 +14,9 @@ import android.widget.SpinnerAdapter;
 import android.widget.TextView;
 public class LOLAdapter extends BaseAdapter implements SpinnerAdapter{
 		private Activity activity;
-		private ArrayList<ComposedItem> levels;
-	public LOLAdapter(Activity activity, ArrayList<ComposedItem> lvls){
+		private ArrayList<Level> levels;
+		
+	public LOLAdapter(Activity activity, ArrayList<Level> lvls){
 	    this.activity = activity;
 	    this.levels = lvls;
 	}
@@ -30,6 +33,7 @@ public class LOLAdapter extends BaseAdapter implements SpinnerAdapter{
 	    return position;
 	}
 	
+	
 	public View getView(int position, View convertView, ViewGroup parent) {
 		View spinView;
 		if( convertView == null ){
@@ -39,8 +43,23 @@ public class LOLAdapter extends BaseAdapter implements SpinnerAdapter{
 		     spinView = convertView;
 		}
 		ImageView icon = (ImageView) spinView.findViewById(R.id.Level_icon);
-		TextView lbl = (TextView) spinView.findViewById(R.id.Level_lbl);
-		lbl.setText(String.valueOf(levels.get(position).getLevel()));
+		switch(levels.get(position).getId()){
+			case 1:
+				icon.setBackgroundResource(R.drawable.easy);
+				break;
+			case 2:
+				icon.setBackgroundResource(R.drawable.medium);
+				break;
+			case 3:
+				icon.setBackgroundResource(R.drawable.hard);
+				break;
+			case 4:
+				icon.setBackgroundResource(R.drawable.custom);
+				break;
+		}
+		
+		//TextView lbl = (TextView) spinView.findViewById(R.id.Level_lbl);
+		//lbl.setText(String.valueOf(levels.get(position).getLevel()));
 		return spinView;
 	}
 }

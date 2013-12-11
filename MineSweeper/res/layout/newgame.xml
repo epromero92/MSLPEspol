@@ -2,22 +2,19 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/abFrameLayout"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    >
    <ImageView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:scaleType="centerCrop"
-        android:src="@drawable/background">
+        android:src="@drawable/backgame">
     </ImageView>
     <LinearLayout 
-	    android:id ="@+id/abLinearLayout1"
 	    android:layout_width="match_parent"
 	    android:layout_height="match_parent"
 	    android:orientation="vertical"
 	    android:gravity="center"
-	    android:paddingRight="300dp"
-		android:paddingLeft="300dp"
-		android:textSize="35sp"
 		>
 	    
 	    <!-- Etiqueta de texto -->
@@ -30,22 +27,81 @@
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
 			android:text="@string/levelsPrompt" 
-			android:textColor="@color/white"
+			android:textColor="@color/gray"
 			android:textSize="35sp"/>
 		<Spinner
 		    android:id="@+id/ListOfLevels"
-		    android:layout_width="match_parent"
+		    android:layout_width="wrap_content"
 		    android:layout_height="wrap_content"
 		   	android:prompt="@string/levelsPrompt"
 		    android:spinnerMode="dropdown"
-		    android:textColor="@color/gray"
 		    />
+		<LinearLayout 
+		    android:layout_width="match_parent"
+		    android:layout_height="wrap_content"
+		    android:orientation="horizontal"
+		    android:gravity="center"
+			>
+			<TextView
+				android:id="@+id/Rows"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:text="@string/rows" 
+				android:textColor="@color/gray"
+				android:textSize="35sp"/>
+			<EditText 
+			    android:id="@+id/numOfRows"
+				android:layout_width="100sp"
+				android:layout_height="wrap_content"
+				android:textColor="@color/gray"
+				android:textSize="35sp"/>
+		</LinearLayout>
+		<LinearLayout 
+		    android:layout_width="match_parent"
+		    android:layout_height="wrap_content"
+		    android:orientation="horizontal"
+		    android:gravity="center"
+			>
+			<TextView
+				android:id="@+id/Columns"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:text="@string/columns" 
+				android:textColor="@color/gray"
+				android:textSize="35sp"/>
+			<EditText 
+			    android:id="@+id/numOfColumns"
+				android:layout_width="100sp"
+				android:layout_height="wrap_content"
+				android:textColor="@color/gray"
+				android:textSize="35sp"/>
+		</LinearLayout>
+		<LinearLayout 
+		    android:layout_width="match_parent"
+		    android:layout_height="wrap_content"
+		    android:orientation="horizontal"
+		    android:gravity="center"
+			>
+			<TextView
+				android:id="@+id/Mines"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:text="@string/mines" 
+				android:textColor="@color/gray"
+				android:textSize="35sp"/>
+			<EditText 
+			    android:id="@+id/percentOfMines"
+				android:layout_width="100sp"
+				android:layout_height="wrap_content"
+				android:textColor="@color/gray"
+				android:textSize="35sp"/>
+		</LinearLayout>
 		<Button
-			android:id="@+id/AcceptBtn"
-			android:layout_width="match_parent"
+			android:id="@+id/continueBtn"
+			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
 			android:text="@string/accept" 
-			android:textColor="@color/white"
+			android:textColor="@color/gray"
 			android:textSize="35sp"/>
 		
    </LinearLayout>

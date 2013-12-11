@@ -6,7 +6,7 @@ import android.os.Bundle;
 public class Ranking extends Activity {
 	protected void onCreate(Bundle savedInstanceState){
 		super.onCreate(savedInstanceState);
-		
+		loadThisOnCreate();
 	}
 	public void loadThisOnCreate(){
 		setContentView(R.layout.ranking);		

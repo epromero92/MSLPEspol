@@ -7,26 +7,59 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:scaleType="centerCrop"
-        android:src="@drawable/back2">
+        android:src="@drawable/backgame">
     </ImageView>
     
 	<LinearLayout 
 	    android:layout_width="match_parent"
 	    android:layout_height="match_parent"
-	   
 	    android:gravity="center"
-	    android:orientation="vertical"
-	    >
+	    android:orientation="vertical">
 	    
-	    <TextView 
-	        android:id="@+id/TapsToWin_Lbl"
-	       	android:layout_width="match_parent"
-			android:layout_height="wrap_content"
-			android:text="@string/tapsToWin" 
-			android:textColor="@color/white"
-			android:textSize="35sp"
-			/>
-	    
+	    <LinearLayout 
+		    android:layout_width="wrap_content"
+		    android:layout_height="wrap_content"
+		    android:orientation="horizontal"
+		    android:gravity="center"
+		    android:layout_marginBottom="20sp"
+		    android:layout_marginTop="20sp"
+		  	>
+	    	<TextView 
+		        android:id="@+id/TapsToWin_Lbl"
+		       	android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:text="@string/tapsToWin" 
+				android:textColor="@color/gray"
+				android:textSize="35sp"
+				android:layout_marginRight="40sp"
+				
+				/>
+	    	<ImageButton
+				android:id="@+id/Reset_btn"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:background="@drawable/reset_selector"
+				android:layout_marginRight="40sp"
+				/>
+	    	<TextView 
+		        android:id="@+id/Time_Lbl"
+		       	android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:text="@string/time" 
+				android:textColor="@color/gray"
+				android:textSize="35sp"
+				android:layout_marginRight="25sp"
+				
+				/>
+	       	<Chronometer
+	    	    android:id="@+id/Chronos"
+	    	    android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:textSize="35sp"
+				android:textColor="@color/violet"
+				android:layout_weight="1"
+	    	    />
+		</LinearLayout>
 	    <GridView 
             android:id="@+id/table"
 		    android:layout_width="wrap_content"
@@ -38,8 +71,5 @@
 		    android:stretchMode="none"
 		    >
 	    </GridView>
-	   
 	</LinearLayout>
-
-	
 </RelativeLayout>

@@ -7,11 +7,15 @@ import android.app.Activity;
 import android.content.Context;
 import android.graphics.Point;
 import android.os.Bundle;
+import android.os.SystemClock;
 import android.view.Display;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup.LayoutParams;
+import android.widget.Button;
+import android.widget.Chronometer;
 import android.widget.GridView;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -21,10 +25,12 @@ public class Game extends Activity {
 	private int tapsToWin = 0;
 	private int numOfMinesAvble = 0;
 	private TextView tapsToWinLbl;
+	private ImageButton reset;
+	private Chronometer chronos;
 	private ArrayList<Cell> mines;
 	private ArrayList<Cell> cells;
-	
-	Cell[][] cellsArray;
+	private	Cell[][] cellsArray;
+	private Bundle bundle;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState){
@@ -36,25 +42,32 @@ public class Game extends Activity {
 		setContentView(R.layout.game);
 		//Localizar los controles
 		tapsToWinLbl = (TextView)findViewById(R.id.TapsToWin_Lbl);
+		reset = (ImageButton)findViewById(R.id.Reset_btn);
+		chronos =(Chronometer)findViewById(R.id.Chronos);
+		
 		//Recuperamos la información pasada en el intent
-		Bundle bundle = this.getIntent().getExtras();
+		bundle = this.getIntent().getExtras();
 		//Obtengo el nivel y creo el tablero en base al mismo.
 		level = bundle.getString("LEVEL");
+		System.out.println(level);
+		reset.setOnClickListener(new ResetBtnHandler(level));
 		if(level.compareTo(getString(R.string.easy))==0)
-			genTable(9,9, 0.9F);
+			genTable(9,9, 0.1F);
 		else if(level.compareTo(getString(R.string.medium))==0)
-			genTable(16,16,0.9F);
+			genTable(16,16,0.2F);
 		else if(level.compareTo(getString(R.string.hard))==0)
-			genTable(33,16,0.9F);
+			genTable(33,16,0.2F);
+		else if(level.compareTo(getString(R.string.custom))==0){
+			genTable(bundle.getInt("ROWS"),bundle.getInt("COLUMNS"),bundle.getFloat("PERCENT"));
+		}
+		chronos.start();
 	}
 	
 	private void genTable(int numRows, int numColumns, float probability){
 		//create an instance of gridview and then inicialize it with the grid view created in game.xml
 		final GridView table = (GridView)findViewById(R.id.table);
 		table.setNumColumns(numColumns);
-		
-		
-		
+	
 		tapsToWin= numRows*numColumns;
 		cells = new ArrayList<Cell>();
 		mines = new ArrayList<Cell>();
@@ -125,7 +138,7 @@ public class Game extends Activity {
 			int row, column;
 			row = mine.getRow();
 			column = mine.getColumn();
-						
+	
 			for(int i = row - 1; i <= row + 1; i++){
 				for(int j = column - 1; j <= column + 1; j++){
 					try{
@@ -135,18 +148,36 @@ public class Game extends Activity {
 							System.out.println("Row: " + i + " Column: " + j);
 						}
 					}
-					catch(IndexOutOfBoundsException e){
-						
-					}
+					catch(IndexOutOfBoundsException e){}
 				}
 			}
-			
-			
-			
 		}
 	}
 	
-	
+	//Manejador de eventos para el evento click del botón Reset.
+	class ResetBtnHandler implements OnClickListener{
+		String level;
+
+		public ResetBtnHandler(String level){
+			this.level= level;
+		}
+		@Override
+		public void onClick(View v) {
+			if(this.level.compareTo(getString(R.string.easy))==0)
+				genTable(9,9, 0.1F);
+			else if(this.level.compareTo(getString(R.string.medium))==0)
+				genTable(16,16,0.2F);
+			else if(this.level.compareTo(getString(R.string.hard))==0)
+				genTable(33,16,0.2F);
+			else if(level.compareTo(getString(R.string.custom))==0){
+				genTable(Game.this.bundle.getInt("ROWS"),Game.this.bundle.getInt("COLUMNS"),Game.this.bundle.getFloat("PERCENT"));
+			}
+			Game.this.tapsToWinLbl.setText(getString(R.string.tapsToWin));
+			Game.this.chronos.stop();
+			Game.this.chronos.setBase(SystemClock.elapsedRealtime());
+			Game.this.chronos.start();
+		}
+	}
 
 	class CellClickHandler implements OnClickListener {
 		private Context context;
@@ -169,6 +200,7 @@ public class Game extends Activity {
 					cell.setEnabled(false);
 				}
 				Toast.makeText(context, "You've lost the game :l", Toast.LENGTH_SHORT).show();
+				Game.this.chronos.stop();
 			}
 			else{
 				if(!c.isMined()){
@@ -194,18 +226,18 @@ public class Game extends Activity {
 				this.asignIcon(cellsArray[row][column]);
 				cellsArray[row][column].discover();
 				Game.this.tapsToWin--;
-				if(Game.this.tapsToWin == 0)
+				if(Game.this.tapsToWin == 0){
 					Toast.makeText(this.context,"You won! yay!",Toast.LENGTH_SHORT).show();
+					Game.this.chronos.stop();
+				}
 				if(cellsArray[row][column].getAdjacentMines()>0)return;
 			}
-								
 			floodFill(cellsArray, row - 1, column, maxRows, maxColumns);
 			floodFill(cellsArray, row + 1, column, maxRows, maxColumns);
 			floodFill(cellsArray, row, column - 1, maxRows, maxColumns);
 			floodFill(cellsArray, row, column + 1, maxRows, maxColumns);
-			}
+		}
 		
-				
 		public void asignIcon(Cell c){
 			int adj = c.getAdjacentMines();
 			switch(adj){

@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
+import android.widget.ImageButton;
 
 public class Start extends Activity {
 	//Este método es llamado la primera vez que se crea la actividad
@@ -18,7 +19,7 @@ public class Start extends Activity {
 	
 	public void loadThisOnCreate(){
 		setContentView(R.layout.start);
-		Button btnHola = (Button)findViewById(R.id.BtnStart);
+		ImageButton btnHola = (ImageButton)findViewById(R.id.BtnStart);
 		btnHola.setOnClickListener(new OnClickListener() {
 			@Override
 	        public void onClick(View v) {

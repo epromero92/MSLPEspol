@@ -8,19 +8,26 @@
     
     
     <string name="name">Type your name:</string>
-    <string name="accept">Click here to continue</string>
+    <string name="accept">Continue</string>
  	    
     <string name="start">Start</string>
     <string name="nuGame">New Game</string>
     <string name="ranking">Ranking</string>
     <string name="about">About</string>
-    <string name="aboutDesc">Desarrollo del juego Mine Sweeper para la plataforma Android como proyecto del primer parcial de la materia: Lenguajes de Programación\n\nCreador: Efrén Romero</string>
+    <string name="aboutDesc">Desarrollo del juego Mine Sweeper para la plataforma Android como proyecto del primer parcial de la materia: Lenguajes de Programación\n\nDesarrollador: Efrén Romero</string>
 	<string name="game">Playing</string>
 	<string name="levelsPrompt">Choose a level:</string>
 	<string name="easy">Easy</string>
 	<string name="medium">Medium</string>
 	<string name="hard">Hard</string>
-	<string name="custom">Customized</string>
+	<string name="custom">Custom</string>
 	<string name="tapsToWin">Taps to win: </string>
 	<string name="isMined">Is mined, you lost :\</string>
+	
+	<string name="reset">Reset</string>
+	<string name="time">Time: </string>
+	
+	<string name="rows">Rows: </string>
+	<string name="columns">Columns: </string>
+	<string name="mines">Percentage of mines: </string>
 </resources>

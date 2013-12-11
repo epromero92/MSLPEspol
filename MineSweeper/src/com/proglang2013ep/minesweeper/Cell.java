@@ -14,7 +14,7 @@ public class Cell extends ImageButton {
 		super(context);
 		double random = Math.random();
 		wasDiscovered = false;
-		if(random > probability)
+		if(random < probability)
 			hasMine = true;
 		else
 			hasMine = false;

@@ -11,10 +11,10 @@
         android:minSdkVersion="9"
         android:targetSdkVersion="15" />
 	<!--  Este elemento me permite dar soporte a los tipos de pantallas especificados -->
-    <supports-screens android:largeScreens="true" android:smallScreens="false" android:xlargeScreens="true" android:normalScreens="true"/>
     <!-- El elemento "application" es el hijo principal del elemento "manifest" -->
     <!-- El atributo "android:label" de nuestro elemento <application> se refiere al recurso de tipo string "app_name"-->
     <!-- Note que el atributo "android:icon" simplemente hace referencia a "@drawable/ic_launcher" no posee extensión ni especifica la densidad de la pantalla.-->
+    <supports-screens />
     <application
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
